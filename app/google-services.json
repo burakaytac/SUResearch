@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "417414046873",
+    "firebase_url": "https://suresearch-9d27d.firebaseio.com",
+    "project_id": "suresearch-9d27d",
+    "storage_bucket": "suresearch-9d27d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417414046873:android:329ade9f4b7fc530",
+        "android_client_info": {
+          "package_name": "burakaytac.suresearch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417414046873-nlfuo57kgnnj95g09rcm2vh1bu3fh13f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "burakaytac.suresearch",
+            "certificate_hash": "30c287f210efad7101fa73eba1dff1103ca4f89a"
+          }
+        },
+        {
+          "client_id": "417414046873-8hqj8j5rdno47to0nhf3ickmhdo5idmp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYdAsTEoUO_cMuEe7TaeATKXwSswJBaXE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417414046873-8hqj8j5rdno47to0nhf3ickmhdo5idmp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
