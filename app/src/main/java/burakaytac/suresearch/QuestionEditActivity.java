@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -56,12 +59,33 @@ public class QuestionEditActivity extends AppCompatActivity {
         });
     }
 
-    public void addOption(View v) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_question, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_option:
+                addOption();
+                return true;
+            case R.id.save:
+                save();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void addOption() {
         Option option = new Option();
         optionParameterExpandableListAdapter.addData(option);
     }
 
-    public void save(View v) {
+    public void save() {
         question.setOptions(optionParameterExpandableListAdapter.options);
         FirebaseFirestore fs = FirebaseFirestore.getInstance();
         fs.collection("questions").document().set(question).addOnCompleteListener(new OnCompleteListener<Void>() {
