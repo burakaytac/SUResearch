@@ -19,4 +19,6 @@
     <string name="default_value">Default value</string>
     <string name="add_an_option">Add an option</string>
     <string name="add_an_option_parameter">Add an option parameter</string>
+    <string name="save">Save</string>
+    <string name="refresh">Refresh</string>
 </resources>

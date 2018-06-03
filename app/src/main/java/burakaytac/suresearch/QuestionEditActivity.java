@@ -1,6 +1,7 @@
 package burakaytac.suresearch;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -53,5 +59,16 @@ public class QuestionEditActivity extends AppCompatActivity {
     public void addOption(View v) {
         Option option = new Option();
         optionParameterExpandableListAdapter.addData(option);
+    }
+
+    public void save(View v) {
+        question.setOptions(optionParameterExpandableListAdapter.options);
+        FirebaseFirestore fs = FirebaseFirestore.getInstance();
+        fs.collection("questions").document().set(question).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                finish();
+            }
+        });
     }
 }

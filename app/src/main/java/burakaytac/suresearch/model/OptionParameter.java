@@ -1,7 +1,10 @@
 package burakaytac.suresearch.model;
 
+import java.util.Objects;
+
 public class OptionParameter {
     String text, input, defaultValue;
+    long id;
 
     public OptionParameter() {
     }
@@ -10,6 +13,11 @@ public class OptionParameter {
         this.text = text;
         this.input = input;
         this.defaultValue = defaultValue;
+        generateRandomLongID();
+    }
+
+    public void generateRandomLongID() {
+        id = (long)(Math.random() * 10000000);
     }
 
     public String getText() {
@@ -34,5 +42,25 @@ public class OptionParameter {
 
     public void setDefaultValue(String defaultValue) {
         this.defaultValue = defaultValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OptionParameter that = (OptionParameter) o;
+        return Objects.equals(text, that.text) &&
+                Objects.equals(input, that.input) &&
+                Objects.equals(defaultValue, that.defaultValue);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(text, input, defaultValue);
+    }
+
+    public long getId() {
+        return id;
     }
 }
